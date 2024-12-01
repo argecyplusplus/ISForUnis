@@ -1,0 +1,31 @@
+package ru.chernyukai.isforunis.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Table(name = "Roles")
+@Entity(name = "Roles")
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserRole {
+
+    @Id
+    @Column(name = "role_id")
+    @GeneratedValue(generator = "user_role_id_seq", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "user_role_id_seq", sequenceName = "user_role_id_seq", allocationSize = 1)
+    private Long id;
+
+    @Enumerated
+    private UserAuthority userAuthority;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+}
+
