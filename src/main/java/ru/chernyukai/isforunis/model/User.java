@@ -1,9 +1,14 @@
 package ru.chernyukai.isforunis.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Accessors(chain = true)
 //@NoArgsConstructor

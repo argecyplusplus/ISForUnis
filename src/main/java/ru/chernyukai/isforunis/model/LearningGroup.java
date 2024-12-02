@@ -8,8 +8,8 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@Entity(name = "LearningGroups")
-@Table(name = "LearningGroups")
+@Entity(name = "Groups")
+@Table(name = "Groups")
 public class LearningGroup {
     @Id
     @Column(name = "group_id")
@@ -22,7 +22,11 @@ public class LearningGroup {
 
     @ManyToOne
     @JoinColumn(
-            name = "cathedra"
+            name = "cathedra",
+            foreignKey = @ForeignKey(
+                    name = "fk_cathedra",
+                    foreignKeyDefinition = "FOREIGN KEY (cathedra) REFERENCES Cathedras(cathedra_id) ON DELETE SET NULL"
+            )
     )
     private Cathedra cathedra;
 

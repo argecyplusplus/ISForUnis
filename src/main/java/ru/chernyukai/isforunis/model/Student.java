@@ -18,12 +18,23 @@ public class Student {
     private Long id;
 
     //1 to 1
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(
+            name = "user"
+    )
     private User user;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "group",
+            foreignKey = @ForeignKey(name = "fk_student_group", foreignKeyDefinition = "FOREIGN KEY (group) REFERENCES Groups(group_id) ON DELETE SET NULL")
+    )
     private LearningGroup group;
 
+    @Column(name = "is_headman", nullable = false)
     private boolean isHeadman;
 
+    @Column (name = "grade_nook_number", nullable = false)
     private String gradeBookNumber;
 
 

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -20,16 +21,31 @@ public class Message {
     @SequenceGenerator(name = "message_seq", sequenceName = "message_seq", initialValue = 1, allocationSize = 1)
     private Long id;
 
+    @Column (name ="text", nullable = false)
     private String text;
 
-    private DateTime dateTime;
+    @Column(name = "date_time", nullable = false)
+    private LocalDateTime dateTime;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "chat", nullable = false
+    )
     private Chat chat;
 
-    private Message replyedMEssage;
+    @ManyToOne
+    @JoinColumn(
+            name = "replyed_message"
+    )
+    private Message replyedMessage;
 
+    @Column(name = "read_status", columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean readStatus;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "receiver", nullable = false
+    )
     private User receiver;
 
 

@@ -21,7 +21,11 @@ public class Subject {
 
     @ManyToOne
     @JoinColumn(
-            name = "cathedra"
+            name = "cathedra",
+            foreignKey = @ForeignKey(
+                    name = "fk_cathedra",
+                    foreignKeyDefinition = "FOREIGN KEY (cathedra) REFERENCES Cathedras(cathedra_id) ON DELETE SET NULL"
+            )
     )
     private Cathedra cathedra;
 }

@@ -18,8 +18,18 @@ public class Chat {
     @SequenceGenerator(name = "chat_seq", sequenceName = "chat_seq", initialValue = 1, allocationSize = 1)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "user1",
+            nullable = false
+    )
     private User user1;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "user2",
+            nullable = false
+    )
     private User user2;
 
 
