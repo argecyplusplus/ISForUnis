@@ -35,6 +35,12 @@ public class User implements UserDetails {
     private boolean locked;
     private boolean enabled;
 
+    private String surname;
+
+    private String name;
+
+    private String patronymic;
+
 
     @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<UserRole> userRoles;
