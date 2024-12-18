@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 public class AdapterConfig {
 
     @Bean
-    public YGTUAdapter ygtuAdapter() {
-        return new YGTUAdapter(new YSTUSystem());
+    public YSTUAdapter ygtuAdapter() {
+        return new YSTUAdapter(new YSTUSystem());
     }
 
     @Bean

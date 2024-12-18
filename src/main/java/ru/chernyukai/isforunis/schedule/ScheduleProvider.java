@@ -1,5 +1,9 @@
 package ru.chernyukai.isforunis.schedule;
 
+import ru.chernyukai.isforunis.model.Session;
+
+import java.util.List;
+
 public interface ScheduleProvider {
-    String getSchedule(String groupName);
+    List<Session> getSchedule(String groupName);
 }
