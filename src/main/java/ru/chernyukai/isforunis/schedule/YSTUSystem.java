@@ -1,8 +1,11 @@
 package ru.chernyukai.isforunis.schedule;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class YSTUSystem {
     public List<String> fetchScheduleYSTU(String group) {
 

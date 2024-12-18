@@ -1,7 +1,16 @@
 package ru.chernyukai.isforunis.schedule;
 
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
 public class YGMUSystem {
-    public String getYGMSchedule(String groupIdentifier) {
-        return "YGMSchedule|Group: " + groupIdentifier + "|Subjects: Anatomy, Physiology";
+    public List<String> getYGMSchedule(String group) {
+        List<String> response = new ArrayList<>();
+        response.add("Физика Г-505 " + group);
+
+        return response;
     }
 }

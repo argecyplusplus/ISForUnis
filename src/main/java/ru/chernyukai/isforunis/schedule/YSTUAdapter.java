@@ -20,13 +20,6 @@ public class YSTUAdapter implements ScheduleProvider {
     private final ClassroomRepository classroomRepository;
     private final LearningGroupRepository learningGroupRepository;
 
-    public YSTUAdapter(YSTUSystem ystuSystem, SubjectRepository subjectRepository, ClassroomRepository classroomRepository, LearningGroupRepository learningGroupRepository) {
-        this.ystuSystem = ystuSystem;
-        this.subjectRepository = subjectRepository;
-        this.classroomRepository = classroomRepository;
-        this.learningGroupRepository = learningGroupRepository;
-    }
-
     @Override
     public List<Session> getSchedule(String groupName) {
 
